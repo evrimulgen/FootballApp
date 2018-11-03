@@ -15,6 +15,7 @@ import com.footballapp.footballapp.Models.League;
 import com.footballapp.footballapp.Models.LiveScore;
 import com.footballapp.footballapp.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -24,11 +25,17 @@ public class MainActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private ArrayList<Country> countries;
+    private ArrayList<LiveScore> LiveScore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        countries = LiveScoreAPI.getCountries();
+        LiveScore = LiveScoreAPI.getLivescores();
 
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
@@ -36,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         PageAdapter adapter = new PageAdapter(this, getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+
+
 
         //liveScoreAPI = new LiveScoreAPI();
 //        ArrayList<Country> countries = liveScoreAPI.getCountries();
@@ -52,4 +61,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public ArrayList<Country> getCountries() {
+        return countries;
+    }
+
+    public ArrayList<LiveScore> getLiveScore() {
+        return LiveScore;
+    }
 }

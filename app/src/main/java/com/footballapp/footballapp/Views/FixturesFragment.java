@@ -36,7 +36,7 @@ public class FixturesFragment extends Fragment {
 
     private void initializeComponents(View view){
         ListView fixturesListView = view.findViewById(R.id.fixturesListView);
-        LiveScoreAdapter adapter = new LiveScoreAdapter(getActivity(), R.layout.fixture_list_item, LiveScoreAPI.getLivescores());
+        LiveScoreAdapter adapter = new LiveScoreAdapter(getActivity(), R.layout.fixture_list_item, ((MainActivity) getActivity()).getLiveScore());
         fixturesListView.setAdapter(adapter);
     }
 }

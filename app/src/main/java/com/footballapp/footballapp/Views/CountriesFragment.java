@@ -37,7 +37,7 @@ public class CountriesFragment extends Fragment {
 
     private void initializeComponents(View view){
         ListView countriesListView = view.findViewById(R.id.countriesListView);
-        CountryAdapter adapter = new CountryAdapter(getActivity(), R.layout.country_list_item, LiveScoreAPI.getCountries());
+        CountryAdapter adapter = new CountryAdapter(getActivity(), R.layout.country_list_item, ((MainActivity) getActivity()).getCountries());
         countriesListView.setAdapter(adapter);
     }
 

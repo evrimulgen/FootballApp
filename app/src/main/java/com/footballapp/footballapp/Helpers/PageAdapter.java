@@ -21,7 +21,7 @@ public class PageAdapter extends FragmentPagerAdapter{
     @Override
     public Fragment getItem(int position) {
         if(position == 0){
-            return new CountriesFragment();
+            return new FixturesFragment();
         } else if (position == 1){
             return new CountriesFragment();
         } else if(position == 2){
@@ -43,11 +43,11 @@ public class PageAdapter extends FragmentPagerAdapter{
     public CharSequence getPageTitle(int position) {
         switch (position){
             case 0:
-                return "page 1";
+                return "live";
             case 1:
-                return "page 2";
+                return "countries";
             case 2:
-                return "page 3";
+                return "leagues";
             case 3:
                 return "page 4";
             default:

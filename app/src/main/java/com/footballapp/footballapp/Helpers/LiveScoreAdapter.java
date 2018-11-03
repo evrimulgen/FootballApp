@@ -38,7 +38,11 @@ public class LiveScoreAdapter extends ArrayAdapter<LiveScore> {
 
         homeText.setText(liveScore.getHomeName());
         awayText.setText(liveScore.getAwayName());
-        timeText.setText(liveScore.getTime());
+        if(liveScore.getStatus().equals("IN PLAY") | liveScore.getStatus().equals("ADDED TIME")){
+            timeText.setText(liveScore.getTime() + "'");
+        }else{
+            timeText.setText(liveScore.getTime());
+        }
         scoreText.setText(liveScore.getScore());
 
         return convertView;
