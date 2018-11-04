@@ -42,7 +42,9 @@ public class LeagueAdapter extends ArrayAdapter<League> {
         TextView countryText = convertView.findViewById(R.id.countryText);
 
         nameText.setText(league.getName());
-        countryText.setText(((MainActivity) getContext()).getCountry(league.getCountryId()).getName());
+        countryText.setText(APIResources.getCountry(league.getCountryId()).getName());
+
+
 
         return convertView;
     }

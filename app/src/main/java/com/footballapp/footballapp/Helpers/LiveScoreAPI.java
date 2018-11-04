@@ -287,7 +287,7 @@ public class LiveScoreAPI {
         ArrayList<League> leagues = new ArrayList<>();
         String result = "";
         try{
-            result = (new HttpTask().execute("http://livescore-api.com/api-client/scores/live.json?key=" + API_KEY + "&secret=" + API_SECRET + "&country=" + countryId)).get();
+            result = (new HttpTask().execute("http://livescore-api.com/api-client/leagues/list.json?key=" + API_KEY + "&secret=" + API_SECRET + "&country=" + countryId)).get();
             JSONParser parser = new JSONParser();
             JSONObject json =  (JSONObject) parser.parse(result);
 

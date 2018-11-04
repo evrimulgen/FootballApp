@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.footballapp.footballapp.Helpers.APIResources;
 import com.footballapp.footballapp.Helpers.FixtureAdapter;
 import com.footballapp.footballapp.Helpers.LiveScoreAdapter;
 import com.footballapp.footballapp.R;
@@ -36,7 +37,7 @@ public class FixturesFragment extends Fragment {
 
     private void initializeComponents(View view, int leagueId){
         ListView fixturesListView = view.findViewById(R.id.fixturesListView);
-        FixtureAdapter adapter = new FixtureAdapter(getActivity(), R.layout.fixture_list_item, ((MainActivity) getActivity()).getFixtures(leagueId));
+        FixtureAdapter adapter = new FixtureAdapter(getActivity(), R.layout.fixture_list_item, APIResources.getFixtures(leagueId));
         fixturesListView.setAdapter(adapter);
     }
 }

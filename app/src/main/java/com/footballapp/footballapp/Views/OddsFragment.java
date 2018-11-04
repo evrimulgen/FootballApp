@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.footballapp.footballapp.Helpers.APIResources;
 import com.footballapp.footballapp.Helpers.LiveScoreAdapter;
 import com.footballapp.footballapp.Helpers.OddsAdapter;
 import com.footballapp.footballapp.R;
@@ -36,7 +37,7 @@ public class OddsFragment extends Fragment {
 
     private void initializeComponents(View view){
         ListView oddsListView = view.findViewById(R.id.oddsListView);
-        OddsAdapter adapter = new OddsAdapter(getActivity(), R.layout.odds_list_item, ((MainActivity) getActivity()).getOdds());
+        OddsAdapter adapter = new OddsAdapter(getActivity(), R.layout.odds_list_item, APIResources.getOdds());
         oddsListView.setAdapter(adapter);
     }
 }

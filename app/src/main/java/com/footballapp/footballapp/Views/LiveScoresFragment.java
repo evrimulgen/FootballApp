@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.footballapp.footballapp.Helpers.APIResources;
 import com.footballapp.footballapp.Helpers.LiveScoreAdapter;
 import com.footballapp.footballapp.R;
 
@@ -35,7 +36,7 @@ public class LiveScoresFragment extends Fragment {
 
     private void initializeComponents(View view){
         ListView livescoresListView = view.findViewById(R.id.livescoresListView);
-        LiveScoreAdapter adapter = new LiveScoreAdapter(getActivity(), R.layout.livescore_list_item, ((MainActivity) getActivity()).getLiveScore());
+        LiveScoreAdapter adapter = new LiveScoreAdapter(getActivity(), R.layout.livescore_list_item, APIResources.getLiveScore());
         livescoresListView.setAdapter(adapter);
     }
 }
