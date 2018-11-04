@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="fixtures"
+        android:text="livescores"
         android:textSize="32dp"
         android:layout_margin="10dp"
         android:textColor="@color/colorTextPrimary"
@@ -19,7 +19,7 @@
         android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/fixturesListView">
+        android:id="@+id/livescoresListView">
 
     </ListView>
 

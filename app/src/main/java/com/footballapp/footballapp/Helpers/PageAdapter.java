@@ -1,6 +1,7 @@
 package com.footballapp.footballapp.Helpers;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +9,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.footballapp.footballapp.Views.CountriesFragment;
 import com.footballapp.footballapp.Views.FixturesFragment;
+import com.footballapp.footballapp.Views.LeaguesFragment;
+import com.footballapp.footballapp.Views.LiveScoresFragment;
+import com.footballapp.footballapp.Views.OddsFragment;
 
 public class PageAdapter extends FragmentPagerAdapter{
 
@@ -21,13 +25,13 @@ public class PageAdapter extends FragmentPagerAdapter{
     @Override
     public Fragment getItem(int position) {
         if(position == 0){
-            return new CountriesFragment();
+            return new LiveScoresFragment();
         } else if (position == 1){
             return new CountriesFragment();
         } else if(position == 2){
-            return new FixturesFragment();
+            return new LeaguesFragment();
         } else if(position == 3){
-            return new CountriesFragment();
+            return new OddsFragment();
         } else {
             return null;
         }
@@ -43,13 +47,13 @@ public class PageAdapter extends FragmentPagerAdapter{
     public CharSequence getPageTitle(int position) {
         switch (position){
             case 0:
-                return "page 1";
+                return "live";
             case 1:
-                return "page 2";
+                return "countries";
             case 2:
-                return "page 3";
+                return "leagues";
             case 3:
-                return "page 4";
+                return "odds";
             default:
                 return "error";
         }

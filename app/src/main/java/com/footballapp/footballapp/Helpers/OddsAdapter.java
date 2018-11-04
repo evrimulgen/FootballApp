@@ -10,13 +10,16 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.footballapp.footballapp.Models.LiveScore;
+import com.footballapp.footballapp.Models.Odds;
 import com.footballapp.footballapp.R;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
-public class LiveScoreAdapter extends ArrayAdapter<LiveScore> {
+public class OddsAdapter extends ArrayAdapter<Odds> {
 
-    public LiveScoreAdapter(@NonNull Context context, int resource, @NonNull List<LiveScore> objects) {
+    public OddsAdapter(@NonNull Context context, int resource, @NonNull List<Odds> objects) {
         super(context, resource, objects);
     }
 
@@ -24,25 +27,23 @@ public class LiveScoreAdapter extends ArrayAdapter<LiveScore> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         // Get the data item for this position
-        LiveScore liveScore = getItem(position);
+        Odds odds = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.livescore_list_item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.odds_list_item, parent, false);
         }
 
         TextView homeText = convertView.findViewById(R.id.homeText);
         TextView awayText = convertView.findViewById(R.id.awayText);
-        TextView timeText = convertView.findViewById(R.id.timeText);
-        TextView scoreText = convertView.findViewById(R.id.scoreText);
+        TextView oddsHomeText = convertView.findViewById(R.id.oddsHomeText);
+        TextView oddsDrawText = convertView.findViewById(R.id.oddsDrawText);
+        TextView oddsAwayText = convertView.findViewById(R.id.oddsAwayText);
 
-        homeText.setText(liveScore.getHomeName());
-        awayText.setText(liveScore.getAwayName());
-        if(liveScore.getStatus().equals("IN PLAY") | liveScore.getStatus().equals("ADDED TIME")){
-            timeText.setText(liveScore.getTime() + "'");
-        }else{
-            timeText.setText(liveScore.getTime());
-        }
-        scoreText.setText(liveScore.getScore());
+        homeText.setText(odds.getHomeName());
+        awayText.setText(odds.getAwayName());
+        oddsHomeText.setText(odds.getOddsHome());
+        oddsDrawText.setText(odds.getOddsDraw());
+        oddsAwayText.setText(odds.getOddsAway());
 
         return convertView;
     }

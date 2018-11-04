@@ -9,14 +9,16 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.footballapp.footballapp.Models.Fixture;
 import com.footballapp.footballapp.Models.LiveScore;
 import com.footballapp.footballapp.R;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class LiveScoreAdapter extends ArrayAdapter<LiveScore> {
+public class FixtureAdapter extends ArrayAdapter<Fixture> {
 
-    public LiveScoreAdapter(@NonNull Context context, int resource, @NonNull List<LiveScore> objects) {
+    public FixtureAdapter(@NonNull Context context, int resource, @NonNull List<Fixture> objects) {
         super(context, resource, objects);
     }
 
@@ -24,25 +26,22 @@ public class LiveScoreAdapter extends ArrayAdapter<LiveScore> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         // Get the data item for this position
-        LiveScore liveScore = getItem(position);
+        Fixture fixture = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.livescore_list_item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.fixture_list_item, parent, false);
         }
 
         TextView homeText = convertView.findViewById(R.id.homeText);
         TextView awayText = convertView.findViewById(R.id.awayText);
-        TextView timeText = convertView.findViewById(R.id.timeText);
-        TextView scoreText = convertView.findViewById(R.id.scoreText);
+        TextView locationText = convertView.findViewById(R.id.locationText);
+        TextView dateText = convertView.findViewById(R.id.dateText);
 
-        homeText.setText(liveScore.getHomeName());
-        awayText.setText(liveScore.getAwayName());
-        if(liveScore.getStatus().equals("IN PLAY") | liveScore.getStatus().equals("ADDED TIME")){
-            timeText.setText(liveScore.getTime() + "'");
-        }else{
-            timeText.setText(liveScore.getTime());
-        }
-        scoreText.setText(liveScore.getScore());
+        homeText.setText(fixture.getHomeName());
+        awayText.setText(fixture.getAwayName());
+        locationText.setText(fixture.getLocation());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateText.setText(dateFormat.format(fixture.getDate()));
 
         return convertView;
     }

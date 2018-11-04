@@ -9,17 +9,16 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.footballapp.footballapp.Helpers.CountryAdapter;
-import com.footballapp.footballapp.Helpers.LiveScoreAPI;
-import com.footballapp.footballapp.Helpers.LiveScoreAdapter;
+import com.footballapp.footballapp.Helpers.LeagueAdapter;
 import com.footballapp.footballapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CountriesFragment extends Fragment {
+public class LeaguesFragment extends Fragment {
 
 
-    public CountriesFragment() {
+    public LeaguesFragment() {
         // Required empty public constructor
     }
 
@@ -28,7 +27,7 @@ public class CountriesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_countries, container, false);
+        View view = inflater.inflate(R.layout.fragment_leagues, container, false);
 
         initializeComponents(view);
 
@@ -36,9 +35,9 @@ public class CountriesFragment extends Fragment {
     }
 
     private void initializeComponents(View view){
-        ListView countriesListView = view.findViewById(R.id.countriesListView);
-        CountryAdapter adapter = new CountryAdapter(getActivity(), R.layout.country_list_item, ((MainActivity) getActivity()).getCountries());
-        countriesListView.setAdapter(adapter);
+        ListView leaguesListView = view.findViewById(R.id.leaguesListView);
+        LeagueAdapter adapter = new LeagueAdapter(getActivity(), R.layout.league_list_item, ((MainActivity) getActivity()).getLeagues());
+        leaguesListView.setAdapter(adapter);
     }
 
 }

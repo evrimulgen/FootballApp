@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@color/colorItemBackground"
+    android:layout_marginTop="4dp">
+    
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/homeText"
+            android:layout_marginHorizontal="10dp"
+            android:text="Tottenham" android:layout_gravity="left"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorTextPrimary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/awayText"
+            android:textColor="@color/colorTextPrimary"
+            android:layout_marginHorizontal="10dp"
+            android:text="Arsenal" android:layout_gravity="right"
+            android:gravity="center_vertical"/>
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/colorAccent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp" android:text="vs" android:textColor="@color/colorTextPrimary"
+                android:gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="1. 2.33"
+            android:id="@+id/oddsHomeText"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="X. 2.33"
+            android:id="@+id/oddsDrawText"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/colorTextPrimary"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="2. 2.33"
+            android:id="@+id/oddsAwayText"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/colorAccent"/>
+
+    </LinearLayout>
+</FrameLayout>
