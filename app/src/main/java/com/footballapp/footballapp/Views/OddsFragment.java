@@ -8,18 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.footballapp.footballapp.Helpers.FixtureAdapter;
 import com.footballapp.footballapp.Helpers.LiveScoreAdapter;
+import com.footballapp.footballapp.Helpers.OddsAdapter;
 import com.footballapp.footballapp.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FixturesFragment extends Fragment {
+public class OddsFragment extends Fragment {
 
 
-    public FixturesFragment() {
+    public OddsFragment() {
         // Required empty public constructor
     }
 
@@ -27,16 +27,16 @@ public class FixturesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_fixtures, container, false);
+        View view = inflater.inflate(R.layout.fragment_odds, container, false);
 
-        initializeComponents(view, getArguments().getInt("leagueId"));
+        initializeComponents(view);
 
         return view;
     }
 
-    private void initializeComponents(View view, int leagueId){
-        ListView fixturesListView = view.findViewById(R.id.fixturesListView);
-        FixtureAdapter adapter = new FixtureAdapter(getActivity(), R.layout.fixture_list_item, ((MainActivity) getActivity()).getFixtures(leagueId));
-        fixturesListView.setAdapter(adapter);
+    private void initializeComponents(View view){
+        ListView oddsListView = view.findViewById(R.id.oddsListView);
+        OddsAdapter adapter = new OddsAdapter(getActivity(), R.layout.odds_list_item, ((MainActivity) getActivity()).getOdds());
+        oddsListView.setAdapter(adapter);
     }
 }
